@@ -14,6 +14,8 @@ var app = express();
 
 //const mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
+var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
 const mongoose = require('mongoose');
 var mongodbUri = 'mongodb://heroku_r1x1vsv2:vsibjstf5n1doq6n6v04sarblh@ds213705.mlab.com:13705/heroku_r1x1vsv2'
 mongoose.connect(mongodbUri, options);
