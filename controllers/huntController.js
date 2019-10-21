@@ -123,7 +123,7 @@ module.exports = {
         });
     },
 
-    remove: function (req, res) {
+    removedangerously: function (req, res) {
         var id = req.params.id;
         huntModel.findByIdAndRemove(id, function (err, hunt) {
             if (err) {
