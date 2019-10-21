@@ -51,7 +51,7 @@ module.exports = {
 			title : req.body.title,
 			displayable_name : req.body.displayable_name,
 			description : req.body.description,
-			publication_date : req.body.publication_date,
+			publication_date : Date(),
 			num_of_completions : req.body.num_of_completions,
 			num_of_downloads : req.body.num_of_downloads,
       user_id : req.body.user_id
