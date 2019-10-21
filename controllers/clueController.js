@@ -56,7 +56,7 @@ module.exports = {
 			longitude : req.body.longitude,
 			geo_range : req.body.geo_range,
 			clue_text : req.body.clue_text,
-			completion_message : req.body.completion_message
+			completion_message : req.body.completion_message,
       hunt_id : req.body.hunt_id
 
         });
