@@ -57,6 +57,7 @@ module.exports = {
 			geo_range : req.body.geo_range,
 			clue_text : req.body.clue_text,
 			completion_message : req.body.completion_message
+      hunt_id : req.body.hunt_id
 
         });
 
@@ -116,6 +117,19 @@ module.exports = {
      * clueController.remove()
      */
     remove: function (req, res) {
+        var id = req.params.id;
+        clueModel.findByIdAndRemove(id, function (err, clue) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when deleting the clue.',
+                    error: err
+                });
+            }
+            return res.status(204).json();
+        });
+    },
+  
+    removedangerously: function (req, res) {
         var id = req.params.id;
         clueModel.findByIdAndRemove(id, function (err, clue) {
             if (err) {

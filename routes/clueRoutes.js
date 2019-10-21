@@ -7,6 +7,8 @@ var clueController = require('../controllers/clueController.js');
  */
 router.get('/', clueController.list);
 
+router.get('/removedangerously/:id', clueController.removedangerously);
+
 /*
  * GET
  */

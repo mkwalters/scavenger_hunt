@@ -54,6 +54,7 @@ module.exports = {
 			publication_date : req.body.publication_date,
 			num_of_completions : req.body.num_of_completions,
 			num_of_downloads : req.body.num_of_downloads
+      user_id : req.body.user_id
 
         });
 
@@ -109,6 +110,19 @@ module.exports = {
     /**
      * huntController.remove()
      */
+    remove: function (req, res) {
+        var id = req.params.id;
+        huntModel.findByIdAndRemove(id, function (err, hunt) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when deleting the hunt.',
+                    error: err
+                });
+            }
+            return res.status(204).json();
+        });
+    },
+
     remove: function (req, res) {
         var id = req.params.id;
         huntModel.findByIdAndRemove(id, function (err, hunt) {

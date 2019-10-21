@@ -7,6 +7,8 @@ var huntController = require('../controllers/huntController.js');
  */
 router.get('/', huntController.list);
 
+router.get('/removedangerously/:id', huntController.removedangerously);
+
 /*
  * GET
  */
