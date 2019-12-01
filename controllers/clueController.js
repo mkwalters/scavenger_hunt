@@ -10,6 +10,27 @@ module.exports = {
     /**
      * clueController.list()
      */
+
+    by_hunt_id: function (req, res) {
+        var id = req.params.id;
+        clueModel.find({hunt_id: id},   function (err, paper) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when getting paper.',
+                    error: err
+                });
+            }
+            if (!paper) {
+                return res.status(404).json({
+                    message: 'No such paper'
+                });
+            }
+            return res.json(paper);
+        });
+    },
+
+
+
     list: function (req, res) {
         clueModel.find(function (err, clues) {
             if (err) {

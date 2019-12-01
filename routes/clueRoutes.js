@@ -9,6 +9,8 @@ router.get('/', clueController.list);
 
 router.get('/removedangerously/:id', clueController.removedangerously);
 
+router.get('/by_hunt_id/:id', clueController.by_hunt_id);
+
 /*
  * GET
  */
