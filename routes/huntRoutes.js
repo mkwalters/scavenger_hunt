@@ -14,6 +14,10 @@ router.get('/removedangerously/:id', huntController.removedangerously);
  */
 router.get('/:id', huntController.show);
 
+router.get('/inc_num_of_completions/:id', huntController.inc_num_of_completions);
+
+router.get('/inc_num_of_downloads/:id', huntController.inc_num_of_downloads);
+
 /*
  * POST
  */

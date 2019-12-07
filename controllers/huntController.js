@@ -21,6 +21,14 @@ module.exports = {
             return res.json(hunts);
         });
     },
+    
+    inc_num_of_completions: function (req, res) {
+        huntModel.findOneAndUpdate({_id: req.params.id}, {$inc : { num_of_completions: 1 }}).exec();
+    },
+
+    inc_num_of_downloads: function (req, res) {
+        huntModel.findOneAndUpdate({_id: req.params.id}, {$inc : { num_of_downloads: 1 }}).exec();
+    },
 
     /**
      * huntController.show()
