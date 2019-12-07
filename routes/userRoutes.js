@@ -12,6 +12,8 @@ router.get('/', userController.list);
  */
 router.get('/:id', userController.show);
 
+router.get('/confirm/:email/:password', userController.confirm);
+
 /*
  * POST
  */

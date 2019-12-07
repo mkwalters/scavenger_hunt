@@ -22,12 +22,33 @@ module.exports = {
         });
     },
 
+
     /**
      * userController.show()
      */
     show: function (req, res) {
         var id = req.params.id;
         userModel.findOne({_id: id}, function (err, user) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when getting user.',
+                    error: err
+                });
+            }
+            if (!user) {
+                return res.status(404).json({
+                    message: 'No such user'
+                });
+            }
+            return res.json(user);
+        });
+    },
+
+
+    confirm: function (req, res) {
+        var email = req.params.email;
+        var password = req.params.password;
+        userModel.findOne({email: email, password: password}, function (err, user) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting user.',
